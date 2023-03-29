@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
     //Only used in level 3 and beyond
     password: {
         type: String,
+        required: true
     },
     profilePicture: {
         type: String
