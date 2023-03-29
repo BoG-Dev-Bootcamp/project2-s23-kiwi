@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    _id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        required: true
-    },
     firstName: {
         type: String,
         required: true
@@ -26,4 +22,5 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model("User", userSchema)
+//Checks if model is created, otherwise creates model
+export default mongoose.models.User || mongoose.model("User", userSchema)
