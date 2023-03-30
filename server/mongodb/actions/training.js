@@ -1,9 +1,9 @@
 import mongoose from "mongoose"
-import User from "../models/training"
+import Training from "../models/training"
 
 export const createTraining = async (newTrainingData) => {
     try {
-        const newTraining = await new User(newTrainingData)
+        const newTraining = await new Training(newTrainingData)
         await newTraining.save()
     } catch (e) {
         console.log(e.message)

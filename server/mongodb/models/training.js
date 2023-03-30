@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const trainingSchema = new mongoose.Schema({
     _id: {
-        type: ObjectId,
+        type: mongoose.SchemaTypes.ObjectId,
         required: true
     },
     date: {
@@ -14,16 +14,16 @@ const trainingSchema = new mongoose.Schema({
         required: true
     },
     hours: {
-        type: number,
+        type: Number,
         required: true
     },
     animal: {
-        type: ObjectId,
+        type: mongoose.SchemaTypes.ObjectId,
         required: true
     },
     user: {
-        type: ObjectId,
-        required: ObjectId
+        type: mongoose.SchemaTypes.ObjectId,
+        required: true
     },
     // Used in Expert level
     trainingLogVideo: {
