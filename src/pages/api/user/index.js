@@ -1,6 +1,5 @@
-import connectDB from "../../../server/mongodb/index"
-import { createUser } from "../../../server/mongodb/actions/user"
-
+import connectDB from "../../../../server/mongodb/index"
+import { createUser } from "../../../../server/mongodb/actions/user"
 
 export default async function handler(req, res) {
     try {
