@@ -15,10 +15,12 @@ const trainingSchema = new mongoose.Schema({
     },
     animal: {
         type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Animal',
         required: true
     },
     user: {
         type: mongoose.SchemaTypes.ObjectId,
+        ref: 'User',
         required: true
     },
     // Used in Expert level
