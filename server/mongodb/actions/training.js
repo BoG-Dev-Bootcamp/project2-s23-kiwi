@@ -18,13 +18,12 @@ export const allTrainingLogs = async (page_size, last_id) => {
         data = await Training.find().limit(page_size)
     } else {
         data = await Training.find({ '_id': { '$gt': last_id } }).limit(page_size);
-        console.log(data)
     }
     //Check how pagination is supposed to be implemented? is this fine or should I do it with different pages
     if (data[data.length - 1] == null) {
-        return data;
+        return [data, null];
     } else {
         last_id = data[data.length - 1]._id
-        return data = [...data, ... await allTrainingLogs(page_size, last_id)];
+        return [data, last_id];
     }
 }
