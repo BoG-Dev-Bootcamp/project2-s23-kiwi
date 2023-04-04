@@ -1,9 +1,15 @@
 import mongoose from "mongoose"
 import Training from "../models/training"
-
+import Animal from "../models/animal"
 export const createTraining = async (newTrainingData) => {
-    const newTraining = await new Training(newTrainingData)
-    await newTraining.save()
+    const animal = newTrainingData.animal
+    const user = (await Animal.findById(animal)).owner
+    if (user == newTrainingData.user) {
+        const newTraining = await new Training(newTrainingData)
+        await newTraining.save()
+    } else {
+        throw new Error("Animal in training log does not have the owner specified in training log")
+    }
 }
 
 export const allTrainingLogs = async (page_size, last_id) => {
