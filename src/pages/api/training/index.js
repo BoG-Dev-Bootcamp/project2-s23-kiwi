@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     try {
         if (req.method == "POST") {
             await connectDB()
-            await createTraining(req.body) == true
+            await createTraining(req.body)
             return res.status(200).json({ "success": "created new trainingLog" })
         }
     } catch (e) {

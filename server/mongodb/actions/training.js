@@ -2,9 +2,9 @@ import mongoose from "mongoose"
 import Training from "../models/training"
 import Animal from "../models/animal"
 export const createTraining = async (newTrainingData) => {
-    const animal = newTrainingData.animal
-    const user = (await Animal.findById(animal)).owner
-    if (user == newTrainingData.user) {
+    let animal = newTrainingData.animal
+    animal = (await Animal.findById(animal))
+    if (animal && animal.owner == newTrainingData.user) {
         const newTraining = await new Training(newTrainingData)
         await newTraining.save()
     } else {
@@ -12,18 +12,11 @@ export const createTraining = async (newTrainingData) => {
     }
 }
 
-export const allTrainingLogs = async (page_size, last_id) => {
-    let data = null;
-    if (last_id == null) {
-        data = await Training.find().limit(page_size)
+export const allTrainingLogs = async (page_size, page) => {
+    //Returns Training logs, ordered by object_id
+    if (page == 1) {
+        return await Training.find().limit(page_size)
     } else {
-        data = await Training.find({ '_id': { '$gt': last_id } }).limit(page_size);
-    }
-    //Check how pagination is supposed to be implemented? is this fine or should I do it with different pages
-    if (data[data.length - 1] == null) {
-        return [data, null];
-    } else {
-        last_id = data[data.length - 1]._id
-        return [data, last_id];
+        return await Training.find().limit(page_size).skip(page_size * (page - 1))
     }
 }
