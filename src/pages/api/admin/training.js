@@ -6,13 +6,8 @@ export default async function handler(req, res) {
     try {
         if (req.method == "GET") {
             await connectDB()
-            let [logs, last_id] = await allTrainingLogs(5)
-            let newLogs = null;
-            //Gets 5 at a time, however, unsure if to do pagination this way or with different pages 
-            while (last_id != null) {
-                [newLogs, last_id] = await allTrainingLogs(5, last_id);
-                logs = [...logs, ...newLogs]
-            }
+            const page = req.query.page
+            const logs = await allTrainingLogs(5, page)
             return res.status(200).send(logs)
         }
     } catch (e) {
