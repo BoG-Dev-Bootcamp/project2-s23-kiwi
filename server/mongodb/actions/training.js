@@ -2,9 +2,9 @@ import mongoose from "mongoose"
 import Training from "../models/training"
 import Animal from "../models/animal"
 export const createTraining = async (newTrainingData) => {
-    const animal = newTrainingData.animal
-    const user = (await Animal.findById(animal)).owner
-    if (user == newTrainingData.user) {
+    let animal = newTrainingData.animal
+    animal = (await Animal.findById(animal))
+    if (animal && animal.owner == newTrainingData.user) {
         const newTraining = await new Training(newTrainingData)
         await newTraining.save()
     } else {
