@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import User from "../models/user"
+import bcrypt from 'bcryptjs'
 
 export const createUser = async (newUserData) => {
     const newUser = await new User(newUserData)
@@ -13,4 +14,14 @@ export const allUsers = async (page_size, page) => {
     } else {
         return await User.find().select("-password").limit(page_size).skip(page_size * (page - 1))
     }
+}
+
+export const userLogin = async (email, password) => {
+    //If email or password is invalid, returns false
+    const user = await User.findOne({ email })
+    let result = false;
+    if (user) {
+        result = await bcrypt.compare(password, user.password)
+    }
+    return result
 }
