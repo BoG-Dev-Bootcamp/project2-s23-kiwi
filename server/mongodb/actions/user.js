@@ -25,3 +25,14 @@ export const userLogin = async (email, password) => {
     }
     return result
 }
+
+export const userVerify = async (email, password) => {
+    //If email or password is invalid, returns null
+    const user = await User.findOne({ email })
+    let result = false;
+    if (user) {
+        result = await bcrypt.compare(password, user.password)
+        return user
+    }
+    return null
+}

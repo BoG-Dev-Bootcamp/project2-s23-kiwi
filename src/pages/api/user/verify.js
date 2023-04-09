@@ -1,6 +1,5 @@
 import connectDB from '../../../../server/mongodb'
-import User from '../../../../server/mongodb/models/user'
-import { userLogin } from '../../../../server/mongodb/actions/user'
+import { userVerify } from '../../../../server/mongodb/actions/user'
 import { sign } from 'jsonwebtoken'
 import { serialize } from 'cookie'
 export default async function handler(req, res) {
@@ -8,14 +7,14 @@ export default async function handler(req, res) {
         if (req.method == "POST") {
             const { email, password } = req.body
             await connectDB()
-            const result = await userLogin(email, password)
-            if (result) {
-                const token = sign({ email: email }, process.env.SECRET, { expiresIn: '60s' })
+            const user = await userVerify(email, password)
+            if (user != null) {
+                const token = sign({ user }, process.env.SECRET, { expiresIn: '360s' })
                 const serialized = serialize("OurJWT", token, {
                     httpOnly: true,
                     secure: false,
                     sameSite: "strict",
-                    maxAge: 60,
+                    maxAge: 360,
                 });
                 res.setHeader('Set-Cookie', serialized)
                 return res.status(200).send(token)

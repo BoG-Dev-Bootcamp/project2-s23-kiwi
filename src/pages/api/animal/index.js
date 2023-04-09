@@ -1,11 +1,13 @@
 import connectDB from "../../../../server/mongodb/index"
 import { createAnimal } from "../../../../server/mongodb/actions/animal"
+import auth from "../../../../server/utils/auth"
 
 export default async function handler(req, res) {
     try {
         if (req.method == "POST") {
+            const decoded = auth(req)
             await connectDB()
-            await createAnimal(req.body)
+            await createAnimal(req.body, decoded)
             return res.status(200).json({ "success": "created new animal" })
         }
     } catch (e) {

@@ -2,7 +2,6 @@ import { verify } from "jsonwebtoken"
 
 export default function auth(req) {
     const jwt = req.cookies.OurJWT
-    console.log(jwt)
     if (!jwt) {
         throw new Error("Please Login first")
     }
