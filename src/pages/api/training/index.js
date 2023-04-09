@@ -1,11 +1,13 @@
 import connectDB from "../../../../server/mongodb/index"
 import { createTraining } from "../../../../server/mongodb/actions/training"
+import auth from "../../../../server/utils/auth"
 
 export default async function handler(req, res) {
     try {
         if (req.method == "POST") {
             await connectDB()
-            await createTraining(req.body)
+            const decoded = await auth(req)
+            await createTraining(req.body, decoded)
             return res.status(200).json({ "success": "created new trainingLog" })
         }
     } catch (e) {

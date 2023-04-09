@@ -5,8 +5,8 @@ import auth from "../../../../server/utils/auth"
 export default async function handler(req, res) {
     try {
         if (req.method == "POST") {
-            const decoded = auth(req)
             await connectDB()
+            const decoded = auth(req)
             await createAnimal(req.body, decoded)
             return res.status(200).json({ "success": "created new animal" })
         }
