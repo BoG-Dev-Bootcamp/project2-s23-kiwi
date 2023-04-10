@@ -1,9 +1,13 @@
 import mongoose from "mongoose"
+import bcrypt from "bcryptjs"
 import User from "../models/user"
-import bcrypt from 'bcryptjs'
-import { use } from "react"
-
+import connectDB from ".."
 export const createUser = async (newUserData) => {
+    let password = newUserData.password
+    const salt = await bcrypt.genSalt(10)
+    const hash = await bcrypt.hash(password, salt)
+    await connectDB()
+    newUserData.password = hash
     const newUser = await new User(newUserData)
     await newUser.save()
 }
@@ -33,7 +37,9 @@ export const userVerify = async (email, password) => {
     let result = false;
     if (user) {
         result = await bcrypt.compare(password, user.password);
-        return user;
+        if (result) {
+            return user;
+        }
     }
     return null
 }

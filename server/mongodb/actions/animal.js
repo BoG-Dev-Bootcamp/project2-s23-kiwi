@@ -3,7 +3,6 @@ import Animal from "../models/animal"
 
 export const createAnimal = async (newAnimalData, decoded) => {
     newAnimalData.owner = decoded.user._id
-    console.log(newAnimalData)
     const newAnimal = await new Animal(newAnimalData)
     await newAnimal.save()
 }
