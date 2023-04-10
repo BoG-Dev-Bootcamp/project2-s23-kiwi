@@ -1,7 +1,13 @@
 import mongoose from "mongoose"
+import bcrypt from "bcryptjs"
 import User from "../models/user"
-
+import connectDB from ".."
 export const createUser = async (newUserData) => {
+    let password = newUserData.password
+    const salt = await bcrypt.genSalt(10)
+    const hash = await bcrypt.hash(password, salt)
+    await connectDB()
+    newUserData.password = hash
     const newUser = await new User(newUserData)
     await newUser.save()
 }
