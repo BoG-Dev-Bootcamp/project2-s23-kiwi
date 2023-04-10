@@ -17,7 +17,7 @@ export default async function handler(req, res) {
                     maxAge: 360,
                 });
                 res.setHeader('Set-Cookie', serialized)
-                return res.status(200).send(token)
+                return res.status(200).json({ "Success": "User verified" })
             } else {
                 return res.status(403).send("Password or email is invalid")
             }

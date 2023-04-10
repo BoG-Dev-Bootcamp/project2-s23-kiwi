@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 import User from "../models/user"
 import bcrypt from 'bcryptjs'
+import { use } from "react"
 
 export const createUser = async (newUserData) => {
     const newUser = await new User(newUserData)
@@ -28,11 +29,11 @@ export const userLogin = async (email, password) => {
 
 export const userVerify = async (email, password) => {
     //If email or password is invalid, returns null
-    const user = await User.findOne({ email })
+    let user = await User.findOne({ email })
     let result = false;
     if (user) {
-        result = await bcrypt.compare(password, user.password)
-        return user
+        result = await bcrypt.compare(password, user.password);
+        return user;
     }
     return null
 }
