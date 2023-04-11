@@ -12,7 +12,6 @@ export default async function handler(req, res) {
 
         }
     } catch (e) {
-        console.log(e.message)
         return res.status(500).json({ "error": e.message })
     }
     return res.status(500).json({ "error": "an error occurred" })

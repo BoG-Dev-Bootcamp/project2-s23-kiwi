@@ -12,12 +12,17 @@ export const createUser = async (newUserData) => {
     await newUser.save()
 }
 
-export const allUsers = async (page_size, page) => {
+export const allUsers = async (page_size, page, last_id) => {
     //Returns users logs, ordered by object_id
-    if (page == 1) {
-        return await User.find().select("-password").limit(page_size)
+    //if last_id is not given:
+    if (last_id == null) {
+        if (page == 1) {
+            return await User.find().select("-password").limit(page_size)
+        } else {
+            return await User.find().select("-password").limit(page_size).skip(page_size * (page - 1))
+        }
     } else {
-        return await User.find().select("-password").limit(page_size).skip(page_size * (page - 1))
+        return await User.find({ '_id': { '$gt': last_id } }.limi(page_size))
     }
 }
 

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import user from "./user";
 const animalSchema = new mongoose.Schema({
     name: {
         type: String,
