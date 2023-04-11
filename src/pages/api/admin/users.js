@@ -6,9 +6,12 @@ export default async function handler(req, res) {
     try {
         if (req.method == "GET") {
             await connectDB()
-            const page = req.query.page
-            const logs = await allUsers(5, page)
-            return res.status(200).send(logs)
+            if (auth(req).admin == true) {
+                const page = req.query.page
+                const logs = await allUsers(5, page)
+                return res.status(200).send(logs)
+            } return res.status(500).json({ "error": "Need to be Admin to access" })
+
         }
     } catch (e) {
         return res.status(500).json({ "error": e.message })

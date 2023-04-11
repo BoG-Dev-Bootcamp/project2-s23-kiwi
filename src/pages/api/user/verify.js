@@ -9,7 +9,7 @@ export default async function handler(req, res) {
             await connectDB()
             const user = await userVerify(email, password)
             if (user != null) {
-                const token = sign({ user }, process.env.SECRET, { expiresIn: '360s' })
+                const token = sign({ user, admin: true }, process.env.SECRET, { expiresIn: '360s' })
                 const serialized = serialize("OurJWT", token, {
                     httpOnly: true,
                     secure: false,
