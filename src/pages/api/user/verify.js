@@ -15,6 +15,7 @@ export default async function handler(req, res) {
                     secure: false,
                     sameSite: "strict",
                     maxAge: 360,
+                    path: '/'
                 });
                 res.setHeader('Set-Cookie', serialized)
                 return res.status(200).json({ "Success": "User verified" })
