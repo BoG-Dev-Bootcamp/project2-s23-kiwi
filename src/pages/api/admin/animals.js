@@ -1,18 +1,18 @@
 import { allAnimals } from "../../../../server/mongodb/actions/animal";
 import connectDB from "../../../../server/mongodb/index"
-import Animal from "../../../../server/mongodb/models/user";
-
+import auth from "../../../../server/utils/auth";
 export default async function handler(req, res) {
     try {
         if (req.method == "GET") {
             await connectDB()
-            const page = req.query.page
-            const logs = await allAnimals(5, page)
-            return res.status(200).send(logs)
+            if (auth(req).admin == true) {
+                const page = req.query.page
+                const logs = await allAnimals(5, page)
+                return res.status(200).send(logs)
+            } return res.status(500).json({ "error": "Need to be Admin to access" })
 
         }
     } catch (e) {
-        console.log(e.message)
         return res.status(500).json({ "error": e.message })
     }
     return res.status(500).json({ "error": "an error occurred" })
