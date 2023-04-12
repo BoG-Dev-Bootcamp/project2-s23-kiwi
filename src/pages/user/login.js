@@ -25,7 +25,6 @@ export default function Login() {
     }
 
     return <div>
-        
         <Head>
             <link rel="index" href="index.css"></link>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -53,7 +52,5 @@ export default function Login() {
                 </div>
             </div>
         </div>
-
-        
     </div>
 }
