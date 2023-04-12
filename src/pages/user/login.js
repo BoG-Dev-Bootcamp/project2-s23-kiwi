@@ -25,7 +25,6 @@ export default function Login() {
     }
 
     return <div>
-        
         <Head>
             <link rel="index" href="index.css"></link>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -53,5 +52,9 @@ export default function Login() {
                 </div>
             </div>
         </div>
+        <div className="Result String">{JSON.stringify(message)}</div>
+        <input type="text" placeholder="email" ref={email} />
+        <input type="password" placeholder="password" ref={password} />
+        <button onClick={handleLogin}>Login</button>
     </div>
 }

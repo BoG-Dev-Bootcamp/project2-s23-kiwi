@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-
+import user from "./user";
+import animal from "./animal";
 const trainingSchema = new mongoose.Schema({
     date: {
         type: Date,
