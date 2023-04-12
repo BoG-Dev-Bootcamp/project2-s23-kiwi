@@ -20,7 +20,9 @@ body {
   text-transform: lowercase;
 }
 h1 {
-  margin: 0;
+  font-family: monospace;
+  color: white;
+  text-align: center;
 }
 .button-container {
   display: flex;
@@ -39,7 +41,9 @@ button, .button {
   margin: 0 55px;
   padding: 10px 50px;
   transition: all 0.2s;
-
+  font-family: monospace;
+  font-weight: bold;
+  text-transform: lowercase;
 }
 button:hover, .button:hover {
   background-color: #33691e;
@@ -51,4 +55,38 @@ button:hover, .button:hover {
   height: 500px;
   background: #563429;
   border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.widthConstraint {
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.welcomeMessage {
+  font-size: 40px;
+  transform: translateY(-40px);
+}
+.inputBox {
+  height: 35px;
+  width: 250px;
+  font-size: 25px;
+  border-radius: 5px;
+  margin: 10px;
+  transform: translateY(-40px)
+}
+.loginButton {
+  transform: translateY(-70px)
+}
+.signUpLink {
+  color: #558b2f;
+}
+.signUpText {
+  color: white;
+  font-family: monospace;
+  text-align: center;
 }
