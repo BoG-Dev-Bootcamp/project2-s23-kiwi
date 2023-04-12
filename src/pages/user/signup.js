@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
-import Link from "next/link";
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Login() {
     const firstName = useRef(null)
@@ -40,18 +42,57 @@ export default function Login() {
     }
 
     return <div>
-        <div className="Result String">{JSON.stringify(message)}</div>
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" placeholder="First Name" ref={firstName} id="firstName" />
-        <label htmlFor="lastName">Last Name</label>
-        <input type="text" placeholder="Last Name" ref={lastName} id="lastName" />
-        <label htmlFor="email">Email</label>
-        <input type="text" placeholder="email" ref={email} id="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" placeholder="password" ref={password} id="password" />
-        <label htmlFor="profilePic">Profile Picture</label>
-        <input type="text" ref={profilePicture} id="profilePic" />
-        <button onClick={handleSignUp}>Sign Up</button>
+        <Head>
+            <link rel="index" href="index.css"></link>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+
+        <div class="header-row">
+            <Link class="button" href="/">Admin</Link>
+            <Link class="button" href="/user/login">Login</Link> 
+            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
+            <Link class="button" href="/">Animal</Link>
+            <Link class="button" href="/">Training</Link>
+        </div>
+        
+        <div class="button-container">
+            <div class="infoCard">
+                <div class="widthConstraint">
+                    <h1 class="welcomeMessage">Welcome to KiwiTrain!</h1>
+                    <div class="signUpText">
+                        <div className="Result String">{JSON.stringify(message)}</div>
+                        <div class="signUpFields">
+                            <label htmlFor="firstName">First Name: </label>
+                            <input class="signUpBox" type="text" placeholder="First Name" ref={firstName} id="firstName" />
+                        </div>
+
+                        <div class="signUpFields">
+                            <label htmlFor="lastName">Last Name: </label>
+                            <input class="signUpBox" type="text" placeholder="Last Name" ref={lastName} id="lastName" />
+                        </div>
+                        
+                        <br></br>
+                        <div class="signUpFields">
+                            <label htmlFor="email">Email: </label>
+                            <input class="signUpBox" type="text" placeholder="email" ref={email} id="email" />
+                        </div>
+                        <div class="signUpFields">
+                            <label htmlFor="password">Password: </label>
+                            <input class="signUpBox" type="password" placeholder="password" ref={password} id="password" />
+                        </div>
+                        <div class="signUpFields">
+                            <label htmlFor="profilePic">Profile Picture: </label>
+                            <input class="signUpBox" type="text" ref={profilePicture} id="profilePic" />
+                        </div>
+                        
+                        <br></br>
+                        <button onClick={handleSignUp}>Sign Up</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
 
     </div>
 }
