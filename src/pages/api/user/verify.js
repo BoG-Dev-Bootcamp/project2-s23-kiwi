@@ -20,7 +20,7 @@ export default async function handler(req, res) {
                 res.setHeader('Set-Cookie', serialized)
                 return res.status(200).json({ "Success": "User verified" })
             } else {
-                return res.status(403).send("Password or email is invalid")
+                return res.status(403).json({ "error": "Password or email is invalid" })
             }
         }
     } catch (e) {
