@@ -37,6 +37,7 @@ export default function Login() {
             <Link class="button" href="/">Animal</Link>
             <Link class="button" href="/">Training</Link>
         </div>
+        
         <div class="button-container">
             <div class="infoCard">
                 <div class="widthConstraint">

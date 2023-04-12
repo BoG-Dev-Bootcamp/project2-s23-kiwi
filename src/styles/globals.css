@@ -47,7 +47,7 @@ button, .button {
 }
 button:hover, .button:hover {
   background-color: #33691e;
-  transform: translateY(-2px);
+  scale: 1.1;
 }
 
 .infoCard {
@@ -80,7 +80,8 @@ button:hover, .button:hover {
   transform: translateY(-40px)
 }
 .loginButton {
-  transform: translateY(-70px)
+  top: 50px;
+  transform: translateY(-75px);
 }
 .signUpLink {
   color: #558b2f;
