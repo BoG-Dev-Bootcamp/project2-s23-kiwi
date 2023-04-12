@@ -48,7 +48,9 @@ export default function Login() {
                     <input type="password" placeholder="password" ref={password} class="inputBox"/>
                     <button onClick={handleLogin} class="loginButton">Login</button>
                     <br></br>
-                    <a class="signUpText">Don't have an account yet? Click <Link class="signUpLink" href="/user/signup">here</Link> to sign up!</a>
+                    <div class="signUpText">
+                        <a>Don't have an account yet? Click </a><Link class="signUpLink" href="/user/signup">here</Link><a> to sign up!</a>
+                    </div>
                 </div>
             </div>
         </div>

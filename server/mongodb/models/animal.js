@@ -16,7 +16,6 @@ const animalSchema = new mongoose.Schema({
     },
     dateOfBirth: {
         type: Date,
-        required: true
     },
     //Used in Expert Level
     profilePicture: {
