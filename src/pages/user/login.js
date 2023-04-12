@@ -25,7 +25,5 @@ export default function Login() {
         <input type="text" placeholder="email" ref={email} />
         <input type="password" placeholder="password" ref={password} />
         <button onClick={handleLogin}>Login</button>
-        <Link href="/admin/users/1">See Users</Link>
-
     </div>
 }
