@@ -59,7 +59,21 @@ button:hover, .button:hover {
   align-items: center;
   display: flex;
 }
+.infoHead {
+  margin-top: 50px;
+  margin-bottom: -45px;
+}
+.infoHeader {
+  font-size: 30px;
+}
 
+.infoCardTextWrapper {
+  width: 70%;
+  color: white;
+  font-family: monospace;
+  font-size: 20px;
+  height: 100%;
+}
 .widthConstraint {
   width: fit-content;
   justify-content: center;
