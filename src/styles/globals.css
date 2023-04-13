@@ -114,3 +114,11 @@ button:hover, .button:hover {
   height: 25px;
   width: 150px;
 }
+
+.adminWrapper {
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  justify-items: center;
+  margin-top: 25%;
+}
