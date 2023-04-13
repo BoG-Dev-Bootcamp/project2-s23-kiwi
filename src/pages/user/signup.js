@@ -13,7 +13,7 @@ export default function Login() {
     async function handleSignUp() {
         let body = {
             firstName: firstName.current?.value,
-            lastName: email.current?.value,
+            lastName: lastName.current?.value,
             email: email.current?.value,
             password: password.current?.value,
         }
@@ -49,12 +49,12 @@ export default function Login() {
 
         <div class="header-row">
             <Link class="button" href="/admin">Admin</Link>
-            <Link class="button" href="/user/login">Login</Link> 
-            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
+            <Link class="button" href="/user/login">Login</Link>
+            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200" /></Link>
             <Link class="button" href="/animal">Animal</Link>
             <Link class="button" href="/training">Training</Link>
         </div>
-        
+
         <div class="button-container">
             <div class="infoCard">
                 <div class="widthConstraint">
@@ -69,7 +69,7 @@ export default function Login() {
                             <label htmlFor="lastName">Last Name: </label>
                             <input class="signUpBox" type="text" placeholder="Last Name" ref={lastName} id="lastName" />
                         </div>
-                        
+
                         <br></br>
                         <div class="signUpFields">
                             <label htmlFor="email">Email: </label>
@@ -83,19 +83,19 @@ export default function Login() {
                             <label htmlFor="profilePic">Profile Picture: </label>
                             <input class="signUpBox" type="text" ref={profilePicture} id="profilePic" />
                         </div>
-                        
+
                         <br></br>
-                        <button onClick={handleSignUp}>Sign Up</button>                 
+                        <button onClick={handleSignUp}>Sign Up</button>
                         <div class="errorText">
                             <div className="Result String">{JSON.stringify(message)}</div>
-                        </div>       
+                        </div>
 
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        
+
 
     </div>
 }
