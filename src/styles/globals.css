@@ -122,3 +122,13 @@ button:hover, .button:hover {
   justify-items: center;
   margin-top: 25%;
 }
+
+.displayDB {
+  font-size: small;
+  justify-content: left !important;
+  color: white;
+  font-family: monospace;
+  font-size: 15px;
+  height: 100%;
+  max-width: 100%;
+}
