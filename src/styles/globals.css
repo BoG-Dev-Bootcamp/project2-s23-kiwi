@@ -90,4 +90,13 @@ button:hover, .button:hover {
   color: white;
   font-family: monospace;
   text-align: center;
+  font-size: 15px;
+}
+.signUpFields {
+  margin: 10px;
+}
+.signUpBox {
+  border-radius: 5px;
+  height: 25px;
+  width: 150px;
 }
