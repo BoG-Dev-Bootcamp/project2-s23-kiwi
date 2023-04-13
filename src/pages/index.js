@@ -18,7 +18,7 @@ export default function Home() {
         <Link class="button" href="/">Admin</Link>
         <Link class="button" href="/user/login">Login</Link> 
         <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
-        <Link class="button" href="/">Animal</Link>
+        <Link class="button" href="/animal">Animal</Link>
         <Link class="button" href="/">Training</Link>
       </div>
       <div class="button-container">
