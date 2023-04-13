@@ -23,14 +23,16 @@ export default function Home() {
       </div>
       <div class="button-container">
         <div class="infoCard">
-          <div>
+          <div class="infoCardTextWrapper">
+            <h1 class="welcomeMessage infoHead">Welcome!</h1>
+            <h1 class="welcomeMessahe infoHeader"> Here at KiwiTrain, we provide the following services.</h1>
+            <p><b>Admin: </b>
+              If issued admin access through JWT, allows you to view all users, training logs,
+              and animals. Implements pagination with object ids.</p>
             <p><b>Login: </b>
               Allows you to login in or sign up to create new user if
               information is valid. Compares and stores passwords with Bcrypt.
               Issues JWT tokens if succesful</p>
-            <p><b>Admin: </b>
-              If issued admin access through JWT, allows you to view all users, training logs,
-              and animals. Implements pagination with object ids.</p>
             <p><b>Animal: </b>
               If logged in, allows users to add animals that they own. Only creates new animals if
               information is valid.
