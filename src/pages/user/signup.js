@@ -60,7 +60,6 @@ export default function Login() {
                 <div class="widthConstraint">
                     <h1 class="welcomeMessage">Welcome to KiwiTrain!</h1>
                     <div class="signUpText">
-                        <div className="Result String">{JSON.stringify(message)}</div>
                         <div class="signUpFields">
                             <label htmlFor="firstName">First Name: </label>
                             <input class="signUpBox" type="text" placeholder="First Name" ref={firstName} id="firstName" />
@@ -86,7 +85,11 @@ export default function Login() {
                         </div>
                         
                         <br></br>
-                        <button onClick={handleSignUp}>Sign Up</button>
+                        <button onClick={handleSignUp}>Sign Up</button>                 
+                        <div class="errorText">
+                            <div className="Result String">{JSON.stringify(message)}</div>
+                        </div>       
+
                     </div>
                     
                 </div>

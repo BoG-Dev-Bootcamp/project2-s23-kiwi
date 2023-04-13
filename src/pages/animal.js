@@ -73,7 +73,7 @@ export default function Animal(token) {
                             <input class="signUpBox" type="text" ref={profilePicture} id="profilePic" />
                         </div>
                         <button onClick={handleSubmit}>Submit</button>
-                        <div className="Result String">{JSON.stringify(message)}</div>
+                        <div class="errorText">{JSON.stringify(message)}</div>
                     </div>
                 </div>
                 </div>

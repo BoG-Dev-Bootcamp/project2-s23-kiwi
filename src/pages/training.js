@@ -77,8 +77,7 @@ export default function Training(token) {
                         <br></br>
                         <button onClick={handleSubmit}>Submit</button>
                     </div>
-                    <div classdate="Result String">{JSON.stringify(message)}</div>
-
+                    <div class="errorText">{JSON.stringify(message)}</div>
                 </div>
             </div>
         </div>
