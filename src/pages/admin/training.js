@@ -63,7 +63,7 @@ export default function Logs(cookie) {
 
         <div class="button-container">
             <div class="infoCard">
-                <div class="">
+                <div class="displayDB">
                     <h1 class="welcomeMessage infoHead">Training Log View</h1>
                     <button class="adminButton" onClick={handleClick}>View Page {page}</button>
                     {data}
