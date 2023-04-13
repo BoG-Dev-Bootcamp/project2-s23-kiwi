@@ -67,7 +67,7 @@ export default function Training(token) {
                             <input class="signUpBox" type="number" ref={hours} id="hours" />
                         </div>
                         <div class="signUpFields">
-                            <label htmlFor="animal">Animal:</label>
+                            <label htmlFor="animal">Animal ID:</label>
                             <input class="signUpBox" type="text" ref={animal} id="profilePic" />
                         </div>
                         <div class="signUpFields">
