@@ -22,6 +22,10 @@ export default function Login() {
         })
         const json = await resp.json()
         setMessage(json)
+        displayPop(message)
+    }
+    function displayPop(message) {
+        alert(JSON.stringify(message))
     }
 
     return <div>
@@ -34,8 +38,8 @@ export default function Login() {
             <Link class="button" href="/">Admin</Link>
             <Link class="button" href="/user/login">Login</Link> 
             <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
-            <Link class="button" href="/">Animal</Link>
-            <Link class="button" href="/">Training</Link>
+            <Link class="button" href="/animal">Animal</Link>
+            <Link class="button" href="/training">Training</Link>
         </div>
         
         <div class="button-container">
@@ -43,7 +47,6 @@ export default function Login() {
                 <div class="widthConstraint">
                     <h1 class="welcomeMessage">Welcome back to KiwiTrain!</h1>
                     <br></br>
-                    <div className="Result String">{JSON.stringify(message)}</div>
                     <input type="text" placeholder="email" ref={email} class="inputBox"/>
                     <br></br>
                     <input type="password" placeholder="password" ref={password} class="inputBox"/>
@@ -52,6 +55,7 @@ export default function Login() {
                     <div class="signUpText">
                         <a>Don't have an account yet? Click </a><Link class="signUpLink" href="/user/signup">here</Link><a> to sign up!</a>
                     </div>
+                    <div className="Result String">{JSON.stringify(message)}</div>
                 </div>
             </div>
         </div>
