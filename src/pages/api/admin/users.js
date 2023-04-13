@@ -9,7 +9,8 @@ export default async function handler(req, res) {
             let admin = auth(req)
             if (auth(req).admin == true) {
                 const page = req.query.page
-                const data = await allUsers(5, page)
+                const last_id = req.query.last_id
+                const data = await allUsers(5, page, last_id)
                 return res.status(200).json(data)
             } return res.status(500).json({ "error": "Need to be Admin to access" })
         }
