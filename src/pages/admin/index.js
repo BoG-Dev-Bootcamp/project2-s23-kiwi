@@ -21,10 +21,17 @@ export default function index() {
                 <Link class="button" href="/training">Training</Link>
             </div>
             <div>
-                <h2>Which Page Do You Want to See</h2>
-                <Link class="button" href="/admin/user">Users</Link>
-                <Link class="button" href="/admin/animal">Animals</Link>
-                <Link class="button" href="/admin/training">Training Logs</Link>
+                <div class="button-container">
+                    <div class="infoCard">
+                        <div class="infoCardTextWrapper adminWrapper">
+                            <h1 class="welcomeMessage infoHead">Welcome Admin!</h1>
+                            <h1 class="infoHeader">Which page would you like to see?</h1>
+                            <Link class="button" href="/admin/user">Users</Link>
+                            <Link class="button" href="/admin/animal">Animals</Link>
+                            <Link class="button" href="/admin/training">Training Logs</Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )

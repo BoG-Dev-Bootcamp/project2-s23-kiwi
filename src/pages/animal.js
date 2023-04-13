@@ -42,7 +42,7 @@ export default function Animal(token) {
         </Head>
 
         <div class="header-row">
-            <Link class="button" href="/">Admin</Link>
+            <Link class="button" href="/admin">Admin</Link>
             <Link class="button" href="/user/login">Login</Link> 
             <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
             <Link class="button" href="/animal">Animal</Link>
