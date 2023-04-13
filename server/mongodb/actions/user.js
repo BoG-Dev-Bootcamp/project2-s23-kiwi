@@ -22,7 +22,7 @@ export const allUsers = async (page_size, page, last_id) => {
             return await User.find().select("-password").limit(page_size).skip(page_size * (page - 1))
         }
     } else {
-        return await User.find({ '_id': { '$gt': last_id } }.limi(page_size))
+        return await User.find({ '_id': { '$gt': last_id } }).limit(page_size)
     }
 }
 
