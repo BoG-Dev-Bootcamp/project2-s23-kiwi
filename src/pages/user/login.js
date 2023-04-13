@@ -22,10 +22,6 @@ export default function Login() {
         })
         const json = await resp.json()
         setMessage(json)
-        displayPop(message)
-    }
-    function displayPop(message) {
-        alert(JSON.stringify(message))
     }
 
     return <div>
@@ -54,8 +50,8 @@ export default function Login() {
                     <br></br>
                     <div class="signUpText">
                         <a>Don't have an account yet? Click </a><Link class="signUpLink" href="/user/signup">here</Link><a> to sign up!</a>
+                        <div>{JSON.stringify(message)}</div>
                     </div>
-                    <div className="Result String">{JSON.stringify(message)}</div>
                 </div>
             </div>
         </div>
