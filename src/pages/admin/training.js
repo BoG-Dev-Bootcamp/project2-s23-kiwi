@@ -1,6 +1,6 @@
 import { use, useRef, useState } from "react";
 
-export default function Animals(cookie) {
+export default function Logs(cookie) {
     const [page, setPage] = useState(1)
     const [message, setMessage] = useState()
     const [lastId, setLastId] = useState(null)
@@ -32,7 +32,7 @@ export default function Animals(cookie) {
     </div>
 }
 
-Animals.getInitialProps = async ({ req, res }) => {
+Logs.getInitialProps = async ({ req, res }) => {
     let token = null;
     if (req != undefined) {
         token = req.cookies.OurJWT
