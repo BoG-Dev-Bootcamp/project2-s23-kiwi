@@ -1,5 +1,10 @@
 import { useRef, useState } from "react";
-import Link from "next/link";
+import Head from 'next/head'
+import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import styles from '@/styles/Home.module.css'
+import Link from 'next/link'
+
 export default function Animal(token) {
     const cookie = token.props.token
     const name = useRef(null)
@@ -31,13 +36,51 @@ export default function Animal(token) {
     }
 
     return <div>
-        <div className="Result String">{JSON.stringify(message)}</div>
-        <input type="text" placeholder="Animal Name" ref={name} id="name" />
-        <input type="text" placeholder="Hours Trained" ref={hoursTrained} id="hoursTrained" />
-        <input type="text" placeholder="Date of Birth" ref={dateOfBirth} id="email" />
-        <label id="profilePic">Profile Picture</label>
-        <input type="text" ref={profilePicture} id="profilePic" />
-        <button onClick={handleSubmit}>Submit</button>
+         <Head>
+            <link rel="index" href="index.css"></link>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+
+        <div class="header-row">
+            <Link class="button" href="/">Admin</Link>
+            <Link class="button" href="/user/login">Login</Link> 
+            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
+            <Link class="button" href="/">Animal</Link>
+            <Link class="button" href="/">Training</Link>
+        </div>
+        
+        <div class="button-container">
+            <div class="infoCard">
+                <div class="widthConstraint">
+                    <div>
+                        <div class="signUpText">
+                        <h1 class="welcomeMessage">Let's get to know your animal!</h1>
+                        <br></br>
+                        <div class="signUpFields">
+                            <label htmlFor="name">Animal Name: </label>
+                            <input class="signUpBox" type="text" placeholder="Animal Name" ref={name} id="name" />
+                        </div>
+                        <div class="signUpFields">
+                            <label htmlFor="hours">Hours Trained: </label>
+                            <input class="signUpBox" type="text" placeholder="Hours Trained" ref={hoursTrained} id="hoursTrained" />
+                        </div>
+                        <div class="signUpFields">
+                            <label htmlFor="DOB">Date of Birth: </label>
+                            <input class="signUpBox" type="text" placeholder="Date of Birth" ref={dateOfBirth} id="email" />
+                        </div>
+                        <div class="signUpFields">
+                            <label id="profilePic">Profile Picture</label>
+                            <input class="signUpBox" type="text" ref={profilePicture} id="profilePic" />
+                        </div>
+                        <button onClick={handleSubmit}>Submit</button>
+                        <div className="Result String">{JSON.stringify(message)}</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+       
     </div>
 }
 
