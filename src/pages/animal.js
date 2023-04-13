@@ -48,9 +48,13 @@ export default function Animal(token) {
 // }
 
 Animal.getInitialProps = async ({ req, res }) => {
+    let token = null;
+    if (req != undefined) {
+        token = req.cookies.OurJWT
+    }
     return {
         props: {
-            token: req.cookies.OurJWT
+            token
         }
     }
 }
