@@ -43,18 +43,18 @@ export default function Training(token) {
 
         <div class="header-row">
             <Link class="button" href="/">Admin</Link>
-            <Link class="button" href="/user/login">Login</Link> 
-            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
+            <Link class="button" href="/user/login">Login</Link>
+            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200" /></Link>
             <Link class="button" href="/">Animal</Link>
             <Link class="button" href="/">Training</Link>
         </div>
-        
+
         <div class="button-container">
             <div class="infoCard">
                 <div class="widthConstraint">
                     <div class="signUpText">
                         <h1 class="welcomeMessage">Tell us about your training plan!</h1>
-                        <div class="signUpFields">  
+                        <div class="signUpFields">
                             <label htmlFor="data">Date: </label>
                             <input class="signUpBox" type="date" ref={date} id="date" />
                         </div>
@@ -71,19 +71,19 @@ export default function Training(token) {
                             <input class="signUpBox" type="text" ref={animal} id="profilePic" />
                         </div>
                         <div class="signUpFields">
-                             <label id="video">Training Log Video:</label>
+                            <label id="video">Training Log Video:</label>
                             <input class="signUpBox" type="text" ref={video} id="video" />
                         </div>
                         <br></br>
                         <button onClick={handleSubmit}>Submit</button>
                     </div>
                     <div classdate="Result String">{JSON.stringify(message)}</div>
-                   
+
                 </div>
             </div>
-        </div>    
+        </div>
 
-       
+
     </div>
 }
 
@@ -94,9 +94,13 @@ export default function Training(token) {
 // }
 
 Training.getInitialProps = async ({ req, res }) => {
+    let token = null;
+    if (req != undefined) {
+        token = req.cookies.OurJWT
+    }
     return {
         props: {
-            token: req.cookies.OurJWT
+            token
         }
     }
 }
