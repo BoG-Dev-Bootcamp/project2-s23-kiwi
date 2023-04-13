@@ -125,12 +125,13 @@ button:hover, .button:hover {
 
 .displayDB {
   font-size: small;
-  justify-content: left !important;
+  justify-content: center !important;
   color: white;
   font-family: monospace;
   font-size: 15px;
   height: 100%;
   max-width: 100%;
+  overflow-y: scroll;
 }
 .adminButton {
   margin-bottom: 50px;

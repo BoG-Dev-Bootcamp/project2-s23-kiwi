@@ -64,7 +64,7 @@ export default function Animals(cookie) {
 
         <div class="button-container">
             <div class="infoCard">
-                <div class="">
+                <div class="displayDB">
                     <h1 class="welcomeMessage infoHead">Animal View</h1>
                     <button class="adminButton" onClick={handleClick}>View Page {page}</button>
                     {data}
