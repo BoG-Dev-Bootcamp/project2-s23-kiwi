@@ -1,4 +1,9 @@
 import { use, useRef, useState } from "react";
+import Head from 'next/head'
+import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import styles from '@/styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Users(cookie) {
     const [page, setPage] = useState(1)
@@ -27,8 +32,28 @@ export default function Users(cookie) {
     }
 
     return <div>
-        <button onClick={handleClick}>View Page {page}</button>
-        <div>{JSON.stringify(message)}</div>
+        <Head>
+            <link rel="index" href="index.css"></link>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+
+        <div class="header-row">
+            <Link class="button" href="/admin">Admin</Link>
+            <Link class="button" href="/user/login">Login</Link>
+            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200" /></Link>
+            <Link class="button" href="/animal">Animal</Link>
+            <Link class="button" href="/training">Training</Link>
+        </div>
+
+        <div class="button-container">
+                <div class="infoCard">
+                    <div class="">
+                        <h1 class="welcomeMessage infoHead">User View</h1>
+                        <button class="adminButton" onClick={handleClick}>View Page {page}</button>
+                        <div class="displayDB">{JSON.stringify(message)}</div>
+                    </div>
+                </div>
+            </div>
     </div>
 }
 
