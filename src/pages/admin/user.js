@@ -8,6 +8,7 @@ import Link from 'next/link'
 export default function Users(cookie) {
     const [page, setPage] = useState(1)
     const [message, setMessage] = useState()
+    const [loggedIn, setLoggedIn] = useState(cookie != null)
     const [lastId, setLastId] = useState(null)
     async function handleClick() {
         let url = `http://localhost:3000/api/admin/users?page=${page}`
@@ -29,8 +30,25 @@ export default function Users(cookie) {
         }
         setMessage(logs)
         setPage(page + 1)
-    }
 
+    }
+    let data = "Please Log In";
+    if (message != undefined && Array.isArray(message)) {
+        data = <div class="displayDB">
+            {message.map(el => <div>
+                {Object.entries(el).map(
+                    ([key, value]) =>
+                        <div class="">
+                            {key}: {value}
+                        </div>
+                )}
+            </div>
+            )}
+        </div>
+
+    } else {
+        data = <div class="displayDB">{JSON.stringify(message)}</div>
+    }
     return <div>
         <Head>
             <link rel="index" href="index.css"></link>
@@ -46,14 +64,15 @@ export default function Users(cookie) {
         </div>
 
         <div class="button-container">
-                <div class="infoCard">
-                    <div class="">
-                        <h1 class="welcomeMessage infoHead">User View</h1>
-                        <button class="adminButton" onClick={handleClick}>View Page {page}</button>
-                        <div class="displayDB">{JSON.stringify(message)}</div>
-                    </div>
+            <div class="infoCard">
+                <div class="">
+                    <h1 class="welcomeMessage infoHead">User View</h1>
+                    <button class="adminButton" onClick={handleClick}>View Page {page}</button>
+                    {/* <div class="displayDB">{JSON.stringify(message)}</div> */}
+                    {data}
                 </div>
             </div>
+        </div>
     </div>
 }
 

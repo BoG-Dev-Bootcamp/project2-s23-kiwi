@@ -30,6 +30,23 @@ export default function Animals(cookie) {
         setMessage(logs)
         setPage(page + 1)
     }
+    let data = "Please Log In";
+    if (message != undefined && Array.isArray(message)) {
+        data = <div class="displayDB">
+            {message.map(el => <div>
+                {Object.entries(el).map(
+                    ([key, value]) =>
+                        <div class="">
+                            {key}: {JSON.stringify(value)}
+                        </div>
+                )}
+            </div>
+            )}
+        </div>
+
+    } else {
+        data = <div class="displayDB">{JSON.stringify(message)}</div>
+    }
 
     return <div>
         <Head>
@@ -46,14 +63,14 @@ export default function Animals(cookie) {
         </div>
 
         <div class="button-container">
-                <div class="infoCard">
-                    <div class="">
-                        <h1 class="welcomeMessage infoHead">Animal View</h1>
-                        <button class="adminButton" onClick={handleClick}>View Page {page}</button>
-                        <div class="displayDB">{JSON.stringify(message)}</div>
-                    </div>
+            <div class="infoCard">
+                <div class="">
+                    <h1 class="welcomeMessage infoHead">Animal View</h1>
+                    <button class="adminButton" onClick={handleClick}>View Page {page}</button>
+                    {data}
                 </div>
             </div>
+        </div>
     </div>
 }
 
