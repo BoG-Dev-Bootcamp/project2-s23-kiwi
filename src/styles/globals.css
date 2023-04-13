@@ -132,3 +132,6 @@ button:hover, .button:hover {
   height: 100%;
   max-width: 100%;
 }
+.adminButton {
+  margin-bottom: 50px;
+}

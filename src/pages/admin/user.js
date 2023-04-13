@@ -49,7 +49,7 @@ export default function Users(cookie) {
                 <div class="infoCard">
                     <div class="">
                         <h1 class="welcomeMessage infoHead">User View</h1>
-                        <button onClick={handleClick}>View Page {page}</button>
+                        <button class="adminButton" onClick={handleClick}>View Page {page}</button>
                         <div class="displayDB">{JSON.stringify(message)}</div>
                     </div>
                 </div>
