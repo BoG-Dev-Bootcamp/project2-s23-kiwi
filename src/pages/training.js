@@ -1,5 +1,10 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
+import Head from 'next/head'
+import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import styles from '@/styles/Home.module.css'
+
 export default function Training(token) {
     const cookie = token.props.token
     const date = useRef(null)
@@ -31,17 +36,54 @@ export default function Training(token) {
     }
 
     return <div>
-        <div classdate="Result String">{JSON.stringify(message)}</div>
-        <input type="date" ref={date} id="date" />
-        <label htmlFor="description">Description</label>
-        <textarea id="description" ref={description} />
-        <label htmlFor="hours">Hours</label>
-        <input type="number" ref={hours} id="hours" />
-        <label htmlFor="animal">Animal</label>
-        <input type="text" ref={animal} id="profilePic" />
-        <label id="video">Training Log Video</label>
-        <input type="text" ref={video} id="video" />
-        <button onClick={handleSubmit}>Submit</button>
+        <Head>
+            <link rel="index" href="index.css"></link>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+
+        <div class="header-row">
+            <Link class="button" href="/">Admin</Link>
+            <Link class="button" href="/user/login">Login</Link> 
+            <Link href="/"><Image src="/KiwiTrain.jpg" width="200" height="200"/></Link>
+            <Link class="button" href="/">Animal</Link>
+            <Link class="button" href="/">Training</Link>
+        </div>
+        
+        <div class="button-container">
+            <div class="infoCard">
+                <div class="widthConstraint">
+                    <div class="signUpText">
+                        <h1 class="welcomeMessage">Tell us about your training plan!</h1>
+                        <div class="signUpFields">  
+                            <label htmlFor="data">Date: </label>
+                            <input class="signUpBox" type="date" ref={date} id="date" />
+                        </div>
+                        <div class="signUpFields">
+                            <label htmlFor="description">Description:</label>
+                            <textarea class="signUpBox" id="description" ref={description} />
+                        </div>
+                        <div class="signUpFields">
+                            <label htmlFor="hours">Hours:</label>
+                            <input class="signUpBox" type="number" ref={hours} id="hours" />
+                        </div>
+                        <div class="signUpFields">
+                            <label htmlFor="animal">Animal:</label>
+                            <input class="signUpBox" type="text" ref={animal} id="profilePic" />
+                        </div>
+                        <div class="signUpFields">
+                             <label id="video">Training Log Video:</label>
+                            <input class="signUpBox" type="text" ref={video} id="video" />
+                        </div>
+                        <br></br>
+                        <button onClick={handleSubmit}>Submit</button>
+                    </div>
+                    <div classdate="Result String">{JSON.stringify(message)}</div>
+                   
+                </div>
+            </div>
+        </div>    
+
+       
     </div>
 }
 
